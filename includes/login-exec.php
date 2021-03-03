@@ -12,24 +12,16 @@
 	$errflag = false;
 	
 	//Connect to mysql server
-	$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
+	$link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
 	if(!$link) {
-		die('Failed to connect to server: ' . mysql_error());
+		die('Failed to connect to server: ' . mysqli_error());
 	}
 	
-	//Select database
-	$db = mysql_select_db(DB_DATABASE);
-	if(!$db) {
-		die("Unable to select database");
-	}
 	
 	//Function to sanitize values received from the form. Prevents SQL injection
 	function clean($str) {
-		$str = @trim($str);
-		if(get_magic_quotes_gpc()) {
-			$str = stripslashes($str);
-		}
-		return mysql_real_escape_string($str);
+		
+		return $str;
 	}
 	
 	//Sanitize the POST values
@@ -56,7 +48,7 @@
 	
 	//Create query
 	$qry="SELECT * FROM tbl_user WHERE user_name='$username' AND password='".md5($_POST['password'])."'";
-	$result=mysql_query($qry);
+	$result=mysql_query($link,$qry);
 
 	//Check whether the query was successful or not
 	if($result) {
