@@ -27,7 +27,7 @@ if(is_array($_POST) && count($_POST) > 0) {
 		$errmsg_arr[] = 'Category name missing';
 		$errflag = true;
 	}
-
+$errflag=0;
 	if($errflag) {
 		$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
 		session_write_close();
@@ -46,7 +46,7 @@ if(is_array($_POST) && count($_POST) > 0) {
 		header("location: index.php");
 		exit();
 	}else {
-		die("Query failed: ".mysql_error());
+		die("Query failed: ".mysqli_error());
 	}
 }
 //handle delete request
@@ -55,7 +55,7 @@ if(is_array($_GET) && count($_GET) > 0 && isset($_GET['delete'])) {
 
 	$qry = "DELETE FROM `tbl_category`
 			WHERE cat_id=".$catid;
-	$result = @mysql_query($qry);
+	$result = mysqli_query($qry);
 	//Check whether the query was successful or not
 	if($result) {
 		$_SESSION['MSGS'] = array('<strong>Wola!</strong> Changes were successful.');
