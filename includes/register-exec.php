@@ -25,7 +25,7 @@
 		}
 		return mysqli_real_escape_string($str);
 	}
-	
+	echo $_POST['username'];
 	//Sanitize the POST values
 	$username = clean($_POST['username']);
 	$email = clean($_POST['email']);
