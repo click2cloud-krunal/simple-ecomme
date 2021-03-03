@@ -1,7 +1,7 @@
 </div> <!-- wrap -->
 <footer>
       <div class="container">
-        <p>&copy; iDukan 2013</p>
+        <p>&copy; iDukan 2020</p>
       </div>
     </footer>
   </body>
