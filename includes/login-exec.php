@@ -55,7 +55,7 @@
 		if(mysqli_num_rows($result) == 1) {
 			//Login Successful
 			session_regenerate_id();
-			$member = mysql_fetch_assoc($result);
+			$member = mysqli_fetch_assoc($result);
 			$_SESSION['SESS_USER_ID'] = $member['user_id'];
 			$_SESSION['SESS_USERNAME'] = $member['user_name'];
 			$_SESSION['SESS_IS_ADMIN'] = $member['user_is_admin'];
@@ -70,6 +70,6 @@
 			exit();
 		}
 	}else {
-		die("Query failed: ".mysql_error());
+		die("Query failed: ".mysqli_error());
 	}
 ?>
