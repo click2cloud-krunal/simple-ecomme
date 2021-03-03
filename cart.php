@@ -44,7 +44,10 @@ if(isset($_GET['add']) )
 
   $product = mysqli_fetch_assoc($res);
 
-  if(!isset( $_SESSION['CART']) ) $_SESSION['CART'] = array();
+  if(!isset( $_SESSION['CART']))
+  {
+    $_SESSION['CART'] = array();
+  }
 
   if(!in_array($product, $_SESSION['CART']))
   {
