@@ -11,7 +11,7 @@ if (!$link) {
 
 
 $res = mysqli_query($link,"SELECT * FROM tbl_user WHERE user_id=".$user_id." LIMIT 1");
-$user = mysql_fetch_assoc($res);
+$user = mysqli_fetch_assoc($res);
 
 $ord_res = mysqli_query($link,"SELECT `tbl_order`.*,GROUP_CONCAT(`pd_name` SEPARATOR ', ') as `products`
 						FROM `tbl_order`,`tbl_order_item`, `tbl_product`
