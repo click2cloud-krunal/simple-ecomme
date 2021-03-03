@@ -1,7 +1,7 @@
 <?php
 //Include database connection details
 require_once(__DIR__.'/../config.php');
-$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
+$link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
 if (!$link) {
 	die("Cannot access db.");
 }
