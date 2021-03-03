@@ -19,15 +19,11 @@
 	
 	//Function to sanitize values received from the form. Prevents SQL injection
 	function clean($str) {
-		$str = @trim($str);
-		if(get_magic_quotes_gpc()) {
-			$str = stripslashes($str);
-		}
-		return mysqli_real_escape_string($str);
+		return $str;
 	}
 	//echo $_POST['username'];
-	$errmsg_arr[] = $_POST['username'];
-	$errflag = true;
+	//$errmsg_arr[] = $_POST['username'];
+	//$errflag = true;
 	//Sanitize the POST values
 	$username = clean($_POST['username']);
 	$email = clean($_POST['email']);
