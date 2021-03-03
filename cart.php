@@ -76,7 +76,7 @@ include 'includes/nav.php';
   </header>
   <div class="container">
     
-    <?php echo "abc+".$_SESSION['CART']."+abc"; if( count($_SESSION['CART']) > 0 )  { ?>
+    <?php if( $_SESSION['CART'] != '' )  { ?>
     <div class="table-responsive">
       <table class="table products-table">
       <thead>
