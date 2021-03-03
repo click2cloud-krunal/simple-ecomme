@@ -25,7 +25,7 @@
 			";
 	$result = mysqli_query($link,$qry);
 
-	$od_id = mysqli_insert_id();
+	$od_id = mysqli_insert_id($result);
 
 	foreach($_SESSION['CART'] as $cart_item_ID => $cart_item)
 	{
@@ -33,7 +33,7 @@
 		$result = mysqli_query($link,$qry);
 
 		$qry = "UPDATE `tbl_product` SET `tbl_product`.`pd_qty` = `tbl_product`.`pd_qty` - 1 WHERE pd_id=".$cart_item['pd_id'];
-		$result = mysql_query($link,$qry);
+		$result = mysqli_query($link,$qry);
 	}
 
 	//Check whether the query was successful or not
