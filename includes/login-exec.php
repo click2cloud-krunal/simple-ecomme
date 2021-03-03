@@ -48,11 +48,11 @@
 	
 	//Create query
 	$qry="SELECT * FROM tbl_user WHERE user_name='$username' AND password='".md5($_POST['password'])."'";
-	$result=mysql_query($link,$qry);
+	$result=mysqli_query($link,$qry);
 
 	//Check whether the query was successful or not
 	if($result) {
-		if(mysql_num_rows($result) == 1) {
+		if(mysqli_num_rows($result) == 1) {
 			//Login Successful
 			session_regenerate_id();
 			$member = mysql_fetch_assoc($result);
